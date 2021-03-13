@@ -20,7 +20,19 @@ mongoose
     return self.connection.dropDatabase();
   })
   .then(() => {
-    // Run your code here, after you have insured that the connection was made
+    const newRecipe = {
+      title: 'Pasta With Sauce and Meat',
+      level: 'Easy Peasy',
+      ingridientes: ['Pasta', 'Tomatos', 'Meat'],
+      cuisine: 'Italian',
+      dishType: 'main_course',
+      duration: 20,
+      creator: 'André Garcia',
+    };
+
+    Recipe.create(newRecipe);
+       .then(createdRecipe => console.log(createdRecipe.title));
+       .catch();
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
