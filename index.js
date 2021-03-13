@@ -30,10 +30,10 @@ mongoose
       creator: 'André Garcia',
     };
 
-    Recipe.create(newRecipe);
-       .then(createdRecipe => console.log(createdRecipe.title));
-       .catch();
+    Recipe.create(newRecipe)
+       .then(createdRecipe => console.log(createdRecipe.title))
+       .catch(error => console.log(error))
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
-  });
+  })
